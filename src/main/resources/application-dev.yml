@@ -1,0 +1,26 @@
+server:
+  port: 8090
+
+rest:
+  template:
+    connect-timeout: 5000
+    read-timeout: 5000
+
+logging:
+  level:
+    root: INFO
+    web: INFO
+    sql: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+  metrics:
+    tags:
+      application: monitoring-app
+
+spring:
+  config:
+    import: optional:file:.env.dev[.properties]
